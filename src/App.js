@@ -44,7 +44,11 @@ function App() {
 					</Route>
 					<Route path={ROUTES.APPOINTMENTS}>
 						{/* Add props to AppointmentsPage */}
-						<AppointmentsPage appointments={appointments} addAppointment={addAppointment} />
+						<AppointmentsPage
+							contacts={contacts}
+							appointments={appointments}
+							addAppointment={addAppointment}
+						/>
 					</Route>
 				</Switch>
 			</main>
