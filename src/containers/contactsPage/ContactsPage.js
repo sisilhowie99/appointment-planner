@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ContactForm } from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export const ContactsPage = (props) => {
+export const ContactsPage = ({ contacts, addContact }) => {
 	const [name, setName] = useState("");
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
@@ -11,7 +11,7 @@ export const ContactsPage = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!isDuplicate) {
-			props.addContact(name, phone, email);
+			addContact(name, phone, email);
 			setName("");
 			setPhone("");
 			setEmail("");
@@ -19,7 +19,7 @@ export const ContactsPage = (props) => {
 	};
 
 	useEffect(() => {
-		props.contacts.forEach((contact) => {
+		contacts.forEach((contact) => {
 			if (contact.name === name) {
 				setIsDuplicate(true);
 			}
@@ -43,7 +43,7 @@ export const ContactsPage = (props) => {
 			<hr />
 			<section>
 				<h2>Contacts</h2>
-				<TileList contacts={props.contacts} />
+				<TileList contacts={contacts} />
 			</section>
 		</div>
 	);
