@@ -18,7 +18,7 @@ function App() {
 		setContacts((prevContacts) => [...prevContacts, newContact]);
 	};
 
-	const addAppointment = (title, contact, date, time) => {
+	const addNewAppointment = (title, contact, date, time) => {
 		const newAppointment = { title, contact, date, time };
 		setAppointments((prevAppointments) => [...prevAppointments, newAppointment]);
 	};
@@ -45,7 +45,7 @@ function App() {
 						<AppointmentsPage
 							contacts={contacts}
 							appointments={appointments}
-							addAppointment={addAppointment}
+							addNewAppointment={addNewAppointment}
 						/>
 					</Route>
 				</Switch>
