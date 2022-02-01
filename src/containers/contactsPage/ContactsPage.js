@@ -19,17 +19,19 @@ export const ContactsPage = ({ contacts, addContact }) => {
 	};
 
 	useEffect(() => {
-		contacts.forEach((contact) => {
-			if (contact.name === name) {
-				setIsDuplicate(true);
-			}
-		});
-	}, [contacts, name]);
+		const nameDuplicates = () => {
+			const alreadyExists = contacts.find((contact) => contact.name === name);
+			return alreadyExists ? true : false;
+		};
+
+		nameDuplicates() ? setIsDuplicate(true) : setIsDuplicate(false);
+	}, [name, contacts, isDuplicate]);
 
 	return (
 		<div>
 			<section>
 				<h2>Add Contact</h2>
+				{ isDuplicate ? 'Contact with that name already exists!' : '' }
 				<ContactForm
 					name={name}
 					setName={setName}
@@ -37,7 +39,7 @@ export const ContactsPage = ({ contacts, addContact }) => {
 					setPhone={setPhone}
 					email={email}
 					setEmail={setEmail}
-					onSubmit={handleSubmit}
+					handleSubmit={handleSubmit}
 				/>
 			</section>
 			<hr />

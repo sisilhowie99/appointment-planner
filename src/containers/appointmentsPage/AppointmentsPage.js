@@ -30,14 +30,14 @@ export const AppointmentsPage = ({ contacts, appointments, addNewAppointment }) 
 					setDate={setDate}
 					time={time}
 					setTime={setTime}
-          onSubmit={handleSubmit}
-          contacts={contacts}
+					handleSubmit={handleSubmit}
+					contacts={contacts}
 				/>
 			</section>
 			<hr />
 			<section>
 				<h2>Appointments</h2>
-        <TileList data={appointments} />
+				<TileList data={appointments} />
 			</section>
 		</div>
 	);

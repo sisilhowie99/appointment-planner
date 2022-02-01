@@ -24,7 +24,7 @@ function App() {
 	};
 
 	return (
-		<>
+		<div>
 			<nav>
 				<NavLink to={ROUTES.CONTACTS} activeClassName="active">
 					Contacts
@@ -39,11 +39,9 @@ function App() {
 						<Redirect to={ROUTES.CONTACTS} />
 					</Route>
 					<Route path={ROUTES.CONTACTS}>
-						{/* Add props to ContactsPage */}
 						<ContactsPage contacts={contacts} addContact={addContact} />
 					</Route>
 					<Route path={ROUTES.APPOINTMENTS}>
-						{/* Add props to AppointmentsPage */}
 						<AppointmentsPage
 							contacts={contacts}
 							appointments={appointments}
@@ -52,7 +50,7 @@ function App() {
 					</Route>
 				</Switch>
 			</main>
-		</>
+		</div>
 	);
 }
 
