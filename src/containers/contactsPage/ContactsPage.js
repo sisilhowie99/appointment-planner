@@ -24,7 +24,7 @@ export const ContactsPage = ({ contacts, addContact }) => {
 				setIsDuplicate(true);
 			}
 		});
-	}, [name]);
+	}, [contacts, name]);
 
 	return (
 		<div>
